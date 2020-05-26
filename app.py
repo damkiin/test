@@ -85,7 +85,7 @@ def update_figure(phu):
     y_cumul = data_count[phu].cumsum()
     data_bar = go.Bar(x=data_count.index, y=y_count, name='Daily count of COVID-19 cases')
     data_scatter = go.Scatter(x=data_count.index, y=y_cumul, yaxis="y2", name='Cumulative count of COVID-19 cases')
-    layout = go.Layout(title='Covid-19 disease trend for ' + str(phu) + ' unit',
+    layout = go.Layout(title='Covid-19 disease trend for ' + str(phu),
                        yaxis2=dict(title='Cumulative frequency', side='right', overlaying='y', color='red',
                                    rangemode='nonnegative', showgrid=False)
                        , yaxis=dict(title='Daily count', color='blue', showgrid=True),
@@ -105,7 +105,7 @@ def rolling(phu):
     y_rolling_avg_14 = data_count[phu].rolling(14).mean()
     y_cumul = data_count[phu].cumsum()
     data_scatter2 = go.Scatter(x=data_count.index, y=y_rolling_avg_14,
-                               name='14-day rolling average of COVID-19 cases related to ' + phu + ' unit')
+                               name='14-day rolling average of COVID-19 cases related to ' + phu )
     layout2 = go.Layout(title='14-day rolling average for ' + phu,
                         yaxis=dict(title='14-day rolling average', color='blue', showgrid=True,
                                    rangemode='nonnegative'),
