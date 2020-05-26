@@ -75,8 +75,9 @@ def rolling(phu):
                                name='14-day rolling average of COVID-19 cases related to ' + phu)
     layout2 = go.Layout(title='14-day rolling average for ' + phu,
                         yaxis=dict(title='14-day rolling average', color='blue', showgrid=True,
-                                   rangemode='nonnegative'),
-                        legend=dict(orientation='h')
+                                   rangemode='nonnegative', fixedrange = True),
+                        legend=dict(orientation='h'),
+                        xaxis= dict(fixedrange = True)
                         )
 
     fig2 = go.Figure(data=data_scatter2,
