@@ -27,7 +27,7 @@ option = [{'label': phus, 'value': phus} for phus in data_raw['Reporting_PHU'].u
 app = dash.Dash()
 server = app.server
 app.layout = html.Div(children = [
-    html.Div(html.H1('COVID-19 TRENDS (ONTARIO HEALTH UNITS)', style= dict(textAlign= 'center'))),
+    html.Div(html.H1('COVID-19 TREND (ONTARIO HEALTH UNITS)', style= dict(textAlign= 'center'))),
     html.Div(html.Label('Select health unit'), style= dict(color = 'blue', textAlign= 'center')),
     html.Div([dcc.Dropdown(
         id='demo-dropdown',
