@@ -65,6 +65,7 @@ options = [
 
 
 app = dash.Dash()
+server = app.server
 app.layout = html.Div([
     dcc.Dropdown(
         id='demo-dropdown',
