@@ -13,11 +13,14 @@ data_raw_url = 'https://data.ontario.ca/dataset/f4112442-bdc8-45d2-be3c-12efae72
 data_raw = pd.read_csv(data_raw_url)
 
 #Grouping the data bi mo shey fe
-data_count = pd.crosstab(data_raw['Accurate_Episode_Date'], data_raw['Reporting_PHU'])
+data_count= pd.crosstab(data_raw['Accurate_Episode_Date'], data_raw['Reporting_PHU'])
+wrong_data_point= data_count[data_count.index> str(datetime.date.today())].index
+data_count= data_count.drop(wrong_data_point)
 data_count.index = pd.DatetimeIndex(data_count.index)
-date_new = pd.date_range(start=data_count.index.min(), end=data_count.index.max())
-date_count = data_count.reindex(date_new, fill_value=0)
-data_cumul = data_count
+date_new = pd.date_range(start = '2020-01-01', end =datetime.date.today())
+data_count = data_count.reindex(date_new, fill_value = 0)
+
+
 
 option = [{'label': phus, 'value': phus} for phus in data_raw['Reporting_PHU'].unique()]
 
@@ -27,7 +30,7 @@ server = app.server
 
 app.layout = html.Div([
     html.Div(html.H1('COVID-19 TREND (ONTARIO HEALTH UNITS)', style=dict(textAlign='center')), className="row"),
-    html.Div(['Text box'], className="row"),
+    html.Div(['Awon temi shey wa o?'], className="row"),
     html.Div(html.Label('Select health unit'), style=dict(color='blue', textAlign='center')),
     html.Div([dcc.Dropdown(
         id='demo-dropdown',
