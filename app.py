@@ -21,9 +21,9 @@ date_new = pd.date_range(start = '2020-01-01', end =datetime.date.today())
 data_count = data_count.reindex(date_new, fill_value = 0)
 
 #Edits fun dash app
-text1= '  DISCLAIMER: This is a visualization of a public dataset made available by the Government of Ontario. The dataset used in creating ths dashboard is available at: '
+text1= '  DISCLAIMER: This is merely a visualization of the COVID-19 public dataset made available by the Government of Ontario. The dataset is available at: '
 urll ='  https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario/resource/455fd63b-603d-4608-8216-7d8647f43350'
-text2='  The dashboard has not been created to compare the efficiency of public health units and has been deliberatly designed to discourage this. Every health unit is doing the absolute best that can be done given the resources available. Keep supporting your health unit and stay safe'
+text2='  The dashboard was not created to compare the efficiency of public health units and has deliberatly been designed to discourage this. Every health unit is doing the absolute best that can be done given the resources available. Keep supporting your health unit and stay safe'
 text3= 'For suggestions contact @DAMKIIN on twitter'
 
 option = [{'label': phus, 'value': phus} for phus in data_raw['Reporting_PHU'].unique()]
@@ -36,21 +36,14 @@ layout_default = go.Layout(dragmode= False, annotations = [
         font= dict(size= 40)
     )])
 figur = go.Figure(layout = layout_default)
-#default graphs with texts for four columns
-layout_default1 = go.Layout(dragmode= False, annotations = [
-    go.layout.Annotation(
-        text = 'SELECT A <BR> PUBLIC HEALTH UNIT TO <BR> POPULATE THE FIGURE',
-        showarrow=False,
-        font= dict(size= 30)
-    )])
-figur1 = go.Figure(layout = layout_default1)
+
 
 #The dash app gaangaan
 app = dash.Dash(external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
 server = app.server
 
 app.layout = html.Div([
-    html.Div(html.H1('COVID-19 TREND (ONTARIO HEALTH UNITS)', style=dict(textAlign='center')), className="row"),
+    html.Div(html.H1('COVID-19 TREND OF ALL POSITIVE CASES (ONTARIO HEALTH UNITS)', style=dict(textAlign='center')), className="row"),
     html.Div(html.Label('Select a health unit from the dropdown menu below'),
              style=dict(color='blue', textAlign='center')),
     html.Div([dcc.Dropdown(
@@ -61,16 +54,16 @@ app.layout = html.Div([
     )], className="row"),
     html.Div([
         html.Div([dcc.Graph(id='graph1', figure=figur)], className="eight columns"),
-        html.Div([dcc.Graph(id='graph2', figure=figur1)], className="four columns"),
+        html.Div([dcc.Graph(id='graph2')], className="four columns"),
     ], className="row"),
     html.Div([
-        html.Div([dcc.Graph(id='graph6', figure=figur1)], className="four columns"),
+        html.Div([dcc.Graph(id='graph6')], className="four columns"),
         html.Div([dcc.Graph(id='graph7', figure=figur)], className="eight columns"),
     ], className="row"),
     html.Div([
-        html.Div([dcc.Graph(id='graph3', figure=figur1)], className="four columns"),
-        html.Div([dcc.Graph(id='graph4', figure=figur1)], className="four columns"),
-        html.Div([dcc.Graph(id='graph5', figure=figur1)], className="four columns"),
+        html.Div([dcc.Graph(id='graph3')], className="four columns"),
+        html.Div([dcc.Graph(id='graph4')], className="four columns"),
+        html.Div([dcc.Graph(id='graph5')], className="four columns"),
     ], className="row"),
     html.Div(['.']),
 
