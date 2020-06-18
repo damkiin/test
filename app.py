@@ -57,13 +57,13 @@ app.layout = html.Div([
         html.Div([dcc.Graph(id='graph2')], className="four columns"),
     ], className="row"),
     html.Div([
-        html.Div([dcc.Graph(id='graph6')], className="four columns"),
+        html.Div([dcc.Graph(id='graph5')], className="four columns"),
         html.Div([dcc.Graph(id='graph7', figure=figur)], className="eight columns"),
     ], className="row"),
     html.Div([
         html.Div([dcc.Graph(id='graph3')], className="four columns"),
         html.Div([dcc.Graph(id='graph4')], className="four columns"),
-        html.Div([dcc.Graph(id='graph5')], className="four columns"),
+        #html.Div([dcc.Graph(id='graph5')], className="four columns"), became redundant with last data update
     ], className="row"),
     html.Div(['.']),
 
