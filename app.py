@@ -24,7 +24,13 @@ data_count = data_count.reindex(date_new, fill_value = 0)
 text1= '  DISCLAIMER: This is merely a visualization of the COVID-19 public dataset made available by the Government of Ontario. The dataset is available at: '
 urll ='  https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario/resource/455fd63b-603d-4608-8216-7d8647f43350'
 text2='  The dashboard was not created to compare the efficiency of public health units and has deliberatly been designed to discourage this. Every health unit is doing the absolute best that can be done given the resources available. Keep supporting your health unit and stay safe'
-text3= 'For suggestions contact @DAMKIIN on twitter'
+text3= 'For suggestions contact Damola Akinbode (@DAMKIIN) on twitter'
+dd1= 'CC = Close Contact'
+dd2= 'No Epi-link = No epidemiological link (i.e., community spread)'
+dd3= 'No Info-Missing = Information missing'
+dd4= 'No Info-Unknown = Information Unknown'
+dd5= 'OB = Outbreak'
+dd6= 'Travel = Travel Related'
 
 option = [{'label': phus, 'value': phus} for phus in data_raw['Reporting_PHU'].unique()]
 
@@ -63,7 +69,16 @@ app.layout = html.Div([
     html.Div([
         html.Div([dcc.Graph(id='graph3')], className="four columns"),
         html.Div([dcc.Graph(id='graph4')], className="four columns"),
-        #html.Div([dcc.Graph(id='graph5')], className="four columns"), became redundant with last data update
+        html.Div([html.Div([
+            html.Article(['DATA DICTIONARY']),
+            html.Article(['-----------------------------']),
+            html.Article([dd1]),
+            html.Article([dd2]),
+            html.Article([dd3]),
+            html.Article([dd4]),
+            html.Article([dd5]),
+            html.Article([dd6])
+        ])], style=dict(border='0.5px black solid', padding= '15px', Align='center'), className="three columns"),
     ], className="row"),
     html.Div(['.']),
 
@@ -79,7 +94,7 @@ app.layout = html.Div([
             ]),
 
         ]),
-    ], style=dict(border='0.5px black solid', Align='right', width='50%')),
+    ], style=dict(border='0.5px black solid', Align='right', width='50%', padding= '15px')),
     html.Div(['.']),
     html.Div(['.']),
 
