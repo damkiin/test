@@ -24,7 +24,7 @@ data_count = data_count.reindex(date_new, fill_value = 0)
 text1= '  DISCLAIMER: This is merely a visualization of the COVID-19 public dataset made available by the Government of Ontario. The dataset is available at: '
 urll ='  https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario/resource/455fd63b-603d-4608-8216-7d8647f43350'
 text2='  The dashboard was not created to compare the efficiency of public health units and has deliberatly been designed to discourage this. Every health unit is doing the absolute best that can be done given the resources available. Keep supporting your health unit and stay safe'
-text3= 'For suggestions contact Damola Akinbode (@DAMKIIN) on twitter'
+text3= 'For suggestions contact Damola Akinbode (Email: damola_akinbode@yahoo.com)'
 dd1= 'CC = Close Contact'
 dd2= 'No Epi-link = No epidemiological link (i.e., community spread)'
 dd3= 'No Info-Missing = Information missing'
